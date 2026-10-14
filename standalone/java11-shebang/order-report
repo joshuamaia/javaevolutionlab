@@ -1,0 +1,22 @@
+#!/usr/bin/java --source 11
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+/**
+ * Java 11 - Script com shebang (JEP 330). Sem extensão .java, sem package.
+ * A primeira linha (#!) é ignorada pelo lançador "java", mas não é Java válido:
+ * por isso este arquivo NÃO pode ficar em src/ (javac falharia).
+ */
+public class OrderReport {
+
+    public static void main(String[] args) {
+        List<String> orders = args.length > 0 ? List.of(args) : List.of("Ana:150", "Bruno:80", "Ana:45");
+        Map<String, Integer> totalByCustomer = orders.stream()
+                .collect(Collectors.groupingBy(o -> o.split(":")[0],
+                        Collectors.summingInt(o -> Integer.parseInt(o.split(":")[1]))));
+        System.out.println("=== Relatório de pedidos (script Java 11) ===");
+        totalByCustomer.forEach((customer, total) -> System.out.println(customer + " -> R$ " + total));
+    }
+}

@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Java 16 - VectorApiExample" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="br.com.javalab.java16.vector.VectorApiExample" />
+    <module name="javaevolutionlab" />
+    <option name="VM_PARAMETERS" value="--enable-preview --add-modules jdk.incubator.vector" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
